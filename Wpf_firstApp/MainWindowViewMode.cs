@@ -13,9 +13,62 @@ namespace Wpf_firstApp
         private Nullable<float> result = null;
         private string msg = string.Empty;
         internal string operation = string.Empty;
+
+        private bool isCheckedSum = false;
+        private bool isCheckedSub = false;
+        private bool isCheckedDiv = false;
+        private bool isCheckedMult = false;
         #endregion
 
         #region GetterAndSetters
+        public bool IsCheckedSum
+        {
+            get { return isCheckedSum; }
+            set
+            {
+                if (isCheckedSum != value)
+                {
+                    OnPropertyChanged(nameof(isCheckedSum));
+                    isCheckedSum = value;
+                }
+            }
+        }
+        public bool IsCheckedSub
+        {
+            get { return isCheckedSub; }
+            set
+            {
+                if (isCheckedSub != value)
+                {
+                    OnPropertyChanged(nameof(isCheckedSub));
+                    isCheckedSub = value;
+                }
+            }
+        }
+        public bool IsCheckedDiv
+        {
+            get { return isCheckedDiv; }
+            set
+            {
+                if (isCheckedDiv != value)
+                {
+                    OnPropertyChanged(nameof(isCheckedDiv));
+                    isCheckedDiv = value;
+                }
+            }
+        }
+        public bool IsCheckedMult
+        {
+            get { return isCheckedMult; }
+            set
+            {
+                if (isCheckedMult != value)
+                {
+                    OnPropertyChanged(nameof(isCheckedMult));
+                    isCheckedMult = value;
+                }
+            }
+        }
         public string Num1
         {
             get { return num1; }
@@ -37,38 +90,115 @@ namespace Wpf_firstApp
                 if (num2 != value)
                 {
                     OnPropertyChanged(nameof(Num2));
-                    num1 = value;
+                    num2 = value;
                 }
             }
         }
         public float? Result
         {
             get { return result; }
-            set { result = value; }
+            set
+            {
+                if (result != value)
+                {
+                    //OnPropertyChanged(nameof(result));
+                    result = value;
+                    // Como fazer igual o manualQuantity para formatar a string
+                }
+            }
         }
 
         public string Msg
         {
             get { return msg; }
-            set { msg = value; }
+            set
+            {
+                if (msg != value)
+                {
+                    msg = value;
+                    OnPropertyChanged(nameof(msg));                    
+                }
+            }
         }
         #endregion
 
+        #region Constructor
         public MainWindowViewMode()
         {
             SetCommand();
         }
+        #endregion
 
         public ICommand calculateCommand { get; set; } = null;
 
-        private void SetCommand()
+        private void SetCommand() //call in class constructor
         {
             calculateCommand = new RelayCommand<object>(btnCalcular);
         }
 
-        private void btnCalcular(object sender)
+        private void btnCalcular(object sender) //this guy come of binding
         {
             // Do something here
+            Msg = string.Empty;
+
+            // validate inputs:
+            float number1;
+            if (string.IsNullOrEmpty(num1) || string.IsNullOrWhiteSpace(num1))
+            {
+                Msg = "number 1 is empty or has space";
+                return;
+            }
+            else if (!float.TryParse(num1, out number1))
+            {
+                Msg = "number 1 invalid";
+                return;
+            }
+
+            float number2;
+            if (string.IsNullOrEmpty(num2) || string.IsNullOrWhiteSpace(num2))
+            {
+                Msg = "number 2 is empty or has space";
+                return;
+            }
+            else if (!float.TryParse(num2, out number2))
+            {
+                Msg = "number 2 invalid";
+                return;
+            }
+
+            switch (CheckRadionButton())
+            {
+                case "sum":
+                    result = number1 + number2;
+                    Msg = result.ToString();
+                    break;
+                case "sub":
+                    result = number1 - number2;
+                    Msg = result.ToString();
+                    break;
+                case "div":
+                    result = number1 / number2;
+                    Msg = result.ToString();
+                    break;
+                case "mult":
+                    result = number1 * number2;
+                    Msg = result.ToString();
+                    break;
+            }
+        }
+
+        private string CheckRadionButton()
+        {
+            if (IsCheckedSum)
+                return "sum";
+            else if (IsCheckedSub)
+                return "sub";
+            else if (IsCheckedDiv)
+                return "div";
+            else if (isCheckedMult)
+                return "mult";
+            else
+                return string.Empty;
         }
 
         public void CalculateNumbers()
@@ -128,5 +258,5 @@ namespace Wpf_firstApp
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
         }
-    }
+    }    
 }

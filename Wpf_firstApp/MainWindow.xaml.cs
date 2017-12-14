@@ -18,7 +18,7 @@ namespace Wpf_firstApp
 
         private void ButtonValidateInput(object sender, RoutedEventArgs e)
         {
-            viewModel.Num1 = txtnumber1.Text;
+            /*viewModel.Num1 = txtnumber1.Text;
             viewModel.Num2 = txtnumber2.Text;
 
             viewModel.operation = CheckRadionButton();
@@ -30,21 +30,7 @@ namespace Wpf_firstApp
             else if (viewModel.Result != null)
             {
                 txtResult.Text = viewModel.Result.ToString();
-            }                            
-        }
-
-        private string CheckRadionButton()
-        {
-            if (sum.IsChecked == true)            
-                return "sum";            
-            else if (sub.IsChecked == true)            
-                return "sub";            
-            else if (div.IsChecked == true)            
-                return "div";            
-            else if (mult.IsChecked == true)            
-                return "mult";            
-            else
-                return string.Empty;
-        }
+            } */                           
+        }        
     }
 }

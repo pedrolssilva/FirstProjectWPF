@@ -34,9 +34,9 @@
                 <ColumnDefinition Width="24*"/>
                 <ColumnDefinition Width="24*"/>
             </Grid.ColumnDefinitions>
-            <TextBox x:Name="txtnumber1" Grid.Column="0" HorizontalAlignment="Left"  Foreground="#8B4513" Text="{Binding Num1, Mode=TwoWay}" BorderBrush="Black" Height="20" Width="250"/>
-            
-            <TextBox x:Name="txtnumber2" Grid.Column="1" HorizontalAlignment="Left"  Foreground="#8B4513" Text="{Binding Num2, Mode=TwoWay}" BorderBrush="Black" Height="20" Width="250"/>
+            <TextBox x:Name="txtnumber1" Grid.Column="0" HorizontalAlignment="Left"  Foreground="#8B4513" Text="{Binding Num1, Mode=TwoWay, UpdateSourceTrigger=LostFocus}" BorderBrush="Black" Height="20" Width="250"/>
+
+            <TextBox x:Name="txtnumber2" Grid.Column="1" HorizontalAlignment="Left"  Foreground="#8B4513" Text="{Binding Num2, Mode=TwoWay, UpdateSourceTrigger=LostFocus}" BorderBrush="Black" Height="20" Width="250"/>
         </Grid>
         <Grid Grid.Row="3" Background="#232732" Margin="0,0,0,0" x:Name="ResultRow">
             <Grid.ColumnDefinitions>
@@ -44,15 +44,15 @@
                 <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
             <Label x:Name="lblResult" Grid.Column="0" Foreground="#BDB76B" HorizontalAlignment="Left" BorderBrush="Black" Content="Result:" />
-            <TextBox x:Name="txtResult" Grid.Column="1" HorizontalAlignment="Left" BorderBrush="Black" Text="{Binding Result, Mode=TwoWay}" Height="20" Width="250" IsEnabled="False"/>
+            <TextBox x:Name="txtResult" Grid.Column="1" HorizontalAlignment="Left" BorderBrush="Black" Text="{Binding Msg, Mode=TwoWay, UpdateSourceTrigger=LostFocus}" Height="20" Width="250" IsEnabled="False"/>
         </Grid>
         <Grid Grid.Row="5">
             <StackPanel  Orientation="Horizontal" HorizontalAlignment="Center">
                 <Label Content="Operation:" Foreground="#BDB76B"></Label>
-                <RadioButton x:Name="sum" GroupName="Operation" Foreground="#BDB76B">Sum</RadioButton>
-                <RadioButton x:Name="sub" GroupName="Operation" Foreground="#BDB76B">Sub</RadioButton>
-                <RadioButton x:Name="div" GroupName="Operation" Foreground="#BDB76B">Div</RadioButton>
-                <RadioButton x:Name="mult" GroupName="Operation" Foreground="#BDB76B">Mult</RadioButton>
+                <RadioButton x:Name="sum" GroupName="Operation" Foreground="#BDB76B" IsChecked="{Binding IsCheckedSum, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">Sum</RadioButton>
+                <RadioButton x:Name="sub" GroupName="Operation" Foreground="#BDB76B" IsChecked="{Binding IsCheckedSub, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">Sub</RadioButton>
+                <RadioButton x:Name="div" GroupName="Operation" Foreground="#BDB76B" IsChecked="{Binding IsCheckedDiv, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">Div</RadioButton>
+                <RadioButton x:Name="mult" GroupName="Operation" Foreground="#BDB76B" IsChecked="{Binding IsCheckedMult, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">Mult</RadioButton>
             </StackPanel>
         </Grid>
         <Grid Grid.Row="7">
