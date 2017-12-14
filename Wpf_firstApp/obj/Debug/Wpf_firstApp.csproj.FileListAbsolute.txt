@@ -1,0 +1,15 @@
+C:\Users\Pedro.luiz\Desktop\LearnigWPF\Wpf_firstApp\Wpf_firstApp\bin\Debug\Wpf_firstApp.exe.config
+C:\Users\Pedro.luiz\Desktop\LearnigWPF\Wpf_firstApp\Wpf_firstApp\bin\Debug\Wpf_firstApp.exe
+C:\Users\Pedro.luiz\Desktop\LearnigWPF\Wpf_firstApp\Wpf_firstApp\bin\Debug\Wpf_firstApp.pdb
+C:\Users\Pedro.luiz\Desktop\LearnigWPF\Wpf_firstApp\Wpf_firstApp\obj\Debug\MainWindow.g.cs
+C:\Users\Pedro.luiz\Desktop\LearnigWPF\Wpf_firstApp\Wpf_firstApp\obj\Debug\App.g.cs
+C:\Users\Pedro.luiz\Desktop\LearnigWPF\Wpf_firstApp\Wpf_firstApp\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\Pedro.luiz\Desktop\LearnigWPF\Wpf_firstApp\Wpf_firstApp\obj\Debug\Wpf_firstApp_MarkupCompile.cache
+C:\Users\Pedro.luiz\Desktop\LearnigWPF\Wpf_firstApp\Wpf_firstApp\obj\Debug\Wpf_firstApp_MarkupCompile.lref
+C:\Users\Pedro.luiz\Desktop\LearnigWPF\Wpf_firstApp\Wpf_firstApp\obj\Debug\MainWindow.baml
+C:\Users\Pedro.luiz\Desktop\LearnigWPF\Wpf_firstApp\Wpf_firstApp\obj\Debug\Wpf_firstApp.g.resources
+C:\Users\Pedro.luiz\Desktop\LearnigWPF\Wpf_firstApp\Wpf_firstApp\obj\Debug\Wpf_firstApp.Properties.Resources.resources
+C:\Users\Pedro.luiz\Desktop\LearnigWPF\Wpf_firstApp\Wpf_firstApp\obj\Debug\Wpf_firstApp.csproj.GenerateResource.Cache
+C:\Users\Pedro.luiz\Desktop\LearnigWPF\Wpf_firstApp\Wpf_firstApp\obj\Debug\Wpf_firstApp.exe
+C:\Users\Pedro.luiz\Desktop\LearnigWPF\Wpf_firstApp\Wpf_firstApp\obj\Debug\Wpf_firstApp.pdb
+C:\Users\Pedro.luiz\Desktop\LearnigWPF\Wpf_firstApp\Wpf_firstApp\obj\Debug\Wpf_firstApp.csprojResolveAssemblyReference.cache
