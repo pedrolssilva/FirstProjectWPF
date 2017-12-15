@@ -1,15 +1,27 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
+using System.Globalization;
 using System.Windows.Input;
+using System.Windows;
+using System.Collections.ObjectModel;
+using System.Windows.Data;
 
 namespace Wpf_firstApp
 {
+    public enum CheckOperation
+    {
+        Sum,
+        Sub,
+        Div,
+        Mult
+    }
+
     public class MainWindowViewMode : ViewModelBase
     {
         #region Attributes
         private string num1;
         private string num2;
-        //private float result = 0;
         private Nullable<float> result = null;
         private string msg = string.Empty;
         internal string operation = string.Empty;
@@ -18,9 +30,38 @@ namespace Wpf_firstApp
         private bool isCheckedSub = false;
         private bool isCheckedDiv = false;
         private bool isCheckedMult = false;
+
+        private ObservableCollection<Result> resultados = new ObservableCollection<Wpf_firstApp.Result>();
+        private CheckOperation currentOperation = CheckOperation.Sum;
         #endregion
 
         #region GetterAndSetters
+
+        public CheckOperation CurrentOperation
+        {
+            get { return currentOperation; }
+            set
+            {
+                if (currentOperation != value)
+                {
+                    currentOperation = value;
+                    OnPropertyChanged(nameof(currentOperation));
+                }
+            }
+        }
+
+        public ObservableCollection<Result> Results
+        {
+            get { return resultados; }
+            set
+            {
+                if (resultados != value)
+                {
+                    OnPropertyChanged(nameof(resultados));
+                    resultados = value;
+                }
+            }
+        }
         public bool IsCheckedSum
         {
             get { return isCheckedSum; }
@@ -116,7 +157,7 @@ namespace Wpf_firstApp
                 if (msg != value)
                 {
                     msg = value;
-                    OnPropertyChanged(nameof(msg));                    
+                    OnPropertyChanged(nameof(msg));
                 }
             }
         }
@@ -140,15 +181,17 @@ namespace Wpf_firstApp
         {
             // Do something here
             Msg = string.Empty;
+            NumberStyles style = NumberStyles.Float;
+            CultureInfo culture = CultureInfo.CurrentCulture; //CreateSpecificCulture("pt-BR");
 
-            // validate inputs:
+            #region validate inputs
             float number1;
             if (string.IsNullOrEmpty(num1) || string.IsNullOrWhiteSpace(num1))
             {
                 Msg = "number 1 is empty or has space";
                 return;
             }
-            else if (!float.TryParse(num1, out number1))
+            else if (!float.TryParse(num1, style, culture, out number1))
             {
                 Msg = "number 1 invalid";
                 return;
@@ -160,33 +203,39 @@ namespace Wpf_firstApp
                 Msg = "number 2 is empty or has space";
                 return;
             }
-            else if (!float.TryParse(num2, out number2))
+            else if (!float.TryParse(num2, style, culture, out number2))
             {
                 Msg = "number 2 invalid";
                 return;
             }
+            #endregion
 
-            switch (CheckRadionButton())
+            switch (CurrentOperation)                
             {
-                case "sum":
+                case CheckOperation.Sum:
                     result = number1 + number2;
-                    Msg = result.ToString();
+                    Msg = FormatResult(result);
+                    resultados.Add(new Result() { Resultoutcome = Msg, Operation = "Sum" });
                     break;
-                case "sub":
+                case CheckOperation.Sub:
                     result = number1 - number2;
-                    Msg = result.ToString();
+                    Msg = FormatResult(result);
+                    resultados.Add(new Result() { Resultoutcome = Msg, Operation = "Subtraction" });
                     break;
-                case "div":
+                case CheckOperation.Div:
                     result = number1 / number2;
-                    Msg = result.ToString();
+                    Msg = FormatResult(result);
+                    resultados.Add(new Result() { Resultoutcome = Msg, Operation = "division" });
                     break;
-                case "mult":
+                case CheckOperation.Mult:
                     result = number1 * number2;
-                    Msg = result.ToString();
+                    Msg = FormatResult(result);
+                    resultados.Add(new Result() { Resultoutcome = Msg, Operation = "multiplication" });
                     break;
             }
         }
 
+        #region methods
         private string CheckRadionButton()
         {
             if (IsCheckedSum)
@@ -201,51 +250,12 @@ namespace Wpf_firstApp
                 return string.Empty;
         }
 
-        public void CalculateNumbers()
+        public string FormatResult(float? result)
         {
-            msg = string.Empty;
-
-            // validate inputs:
-            float number1;
-            if (string.IsNullOrEmpty(num1) || string.IsNullOrWhiteSpace(num1))
-            {
-                msg = "number 1 is empty or has space";
-                return;
-            }
-            else if (!float.TryParse(num1, out number1))
-            {
-                msg = "number 1 invalid";
-                return;
-            }
-
-            float number2;
-            if (string.IsNullOrEmpty(num2) || string.IsNullOrWhiteSpace(num2))
-            {
-                msg = "number 2 is empty or has space";
-                return;
-            }
-            else if (!float.TryParse(num2, out number2))
-            {
-                msg = "number 2 invalid";
-                return;
-            }
-
-            switch (operation)
-            {
-                case "sum":
-                    result = number1 + number2;
-                    break;
-                case "sub":
-                    result = number1 - number2;
-                    break;
-                case "div":
-                    result = number1 / number2;
-                    break;
-                case "mult":
-                    result = number1 * number2;
-                    break;
-            }
+            return string.Format("{0:0.00}", result);
         }
+        #endregion
+
     }
 
     public class ViewModelBase : INotifyPropertyChanged
@@ -258,5 +268,11 @@ namespace Wpf_firstApp
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
         }
-    }    
+    }
+
+    public class Result
+    {
+        public string Resultoutcome { get; set; }
+        public string Operation { get; set; }
+    }  
 }

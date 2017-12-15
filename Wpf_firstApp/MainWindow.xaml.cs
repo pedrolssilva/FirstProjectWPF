@@ -1,4 +1,7 @@
-﻿using System.Windows;
+﻿using System;
+using System.Globalization;
+using System.Windows;
+using System.Windows.Data;
 
 namespace Wpf_firstApp
 {
@@ -13,24 +16,35 @@ namespace Wpf_firstApp
         {
             InitializeComponent();
 
-            viewModel = (MainWindowViewMode)DataContext;            
+            //viewModel = (MainWindowViewMode)DataContext;            
         }
 
         private void ButtonValidateInput(object sender, RoutedEventArgs e)
-        {
-            /*viewModel.Num1 = txtnumber1.Text;
-            viewModel.Num2 = txtnumber2.Text;
-
-            viewModel.operation = CheckRadionButton();
-            viewModel.CalculateNumbers();
-            if (!string.IsNullOrEmpty(viewModel.Msg))
-            {
-                txtResult.Text = viewModel.Msg;
-            }
-            else if (viewModel.Result != null)
-            {
-                txtResult.Text = viewModel.Result.ToString();
-            } */                           
+        {           
         }        
+    }
+
+    class RadioButtonBooleanConverter : IValueConverter
+    {
+        public object Convert(object value, Type targetType, object parameter,
+            CultureInfo culture)
+        {
+            if (value == null || parameter == null) return false;
+            string checkValue = value.ToString();
+            string targetValue = parameter.ToString();
+            return checkValue.Equals(targetValue, StringComparison.InvariantCultureIgnoreCase);
+        }
+
+        public object ConvertBack(object value, Type targetType, object parameter,
+            CultureInfo culture)
+        {
+            if (value == null || parameter == null)
+                return null;
+            bool useValue = (bool)value;
+            string targetValue = parameter.ToString();
+            if (useValue)
+                return Enum.Parse(targetType, targetValue);
+            return null;
+        }
     }
 }
