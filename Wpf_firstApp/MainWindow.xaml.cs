@@ -9,14 +9,10 @@ namespace Wpf_firstApp
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
-    {
-        MainWindowViewMode viewModel;
-
+    {      
         public MainWindow()
         {
-            InitializeComponent();
-
-            //viewModel = (MainWindowViewMode)DataContext;            
+            InitializeComponent();                       
         }
 
         private void ButtonValidateInput(object sender, RoutedEventArgs e)
