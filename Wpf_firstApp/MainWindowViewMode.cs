@@ -26,10 +26,10 @@ namespace Wpf_firstApp
         private string msg = string.Empty;
         internal string operation = string.Empty;
 
-        private bool isCheckedSum = false;
-        private bool isCheckedSub = false;
-        private bool isCheckedDiv = false;
-        private bool isCheckedMult = false;
+        //private bool isCheckedSum = false;
+        //private bool isCheckedSub = false;
+        //private bool isCheckedDiv = false;
+        //private bool isCheckedMult = false;
 
         private ObservableCollection<Result> resultados = new ObservableCollection<Wpf_firstApp.Result>();
         private CheckOperation currentOperation = CheckOperation.Sum;
@@ -62,54 +62,54 @@ namespace Wpf_firstApp
                 }
             }
         }
-        public bool IsCheckedSum
-        {
-            get { return isCheckedSum; }
-            set
-            {
-                if (isCheckedSum != value)
-                {
-                    OnPropertyChanged(nameof(isCheckedSum));
-                    isCheckedSum = value;
-                }
-            }
-        }
-        public bool IsCheckedSub
-        {
-            get { return isCheckedSub; }
-            set
-            {
-                if (isCheckedSub != value)
-                {
-                    OnPropertyChanged(nameof(isCheckedSub));
-                    isCheckedSub = value;
-                }
-            }
-        }
-        public bool IsCheckedDiv
-        {
-            get { return isCheckedDiv; }
-            set
-            {
-                if (isCheckedDiv != value)
-                {
-                    OnPropertyChanged(nameof(isCheckedDiv));
-                    isCheckedDiv = value;
-                }
-            }
-        }
-        public bool IsCheckedMult
-        {
-            get { return isCheckedMult; }
-            set
-            {
-                if (isCheckedMult != value)
-                {
-                    OnPropertyChanged(nameof(isCheckedMult));
-                    isCheckedMult = value;
-                }
-            }
-        }
+        //public bool IsCheckedSum
+        //{
+        //    get { return isCheckedSum; }
+        //    set
+        //    {
+        //        if (isCheckedSum != value)
+        //        {
+        //            OnPropertyChanged(nameof(isCheckedSum));
+        //            isCheckedSum = value;
+        //        }
+        //    }
+        //}
+        //public bool IsCheckedSub
+        //{
+        //    get { return isCheckedSub; }
+        //    set
+        //    {
+        //        if (isCheckedSub != value)
+        //        {
+        //            OnPropertyChanged(nameof(isCheckedSub));
+        //            isCheckedSub = value;
+        //        }
+        //    }
+        //}
+        //public bool IsCheckedDiv
+        //{
+        //    get { return isCheckedDiv; }
+        //    set
+        //    {
+        //        if (isCheckedDiv != value)
+        //        {
+        //            OnPropertyChanged(nameof(isCheckedDiv));
+        //            isCheckedDiv = value;
+        //        }
+        //    }
+        //}
+        //public bool IsCheckedMult
+        //{
+        //    get { return isCheckedMult; }
+        //    set
+        //    {
+        //        if (isCheckedMult != value)
+        //        {
+        //            OnPropertyChanged(nameof(isCheckedMult));
+        //            isCheckedMult = value;
+        //        }
+        //    }
+        //}
         public string Num1
         {
             get { return num1; }
@@ -234,21 +234,20 @@ namespace Wpf_firstApp
                     break;
             }
         }
-
         #region methods
-        private string CheckRadionButton()
-        {
-            if (IsCheckedSum)
-                return "sum";
-            else if (IsCheckedSub)
-                return "sub";
-            else if (IsCheckedDiv)
-                return "div";
-            else if (isCheckedMult)
-                return "mult";
-            else
-                return string.Empty;
-        }
+        //private string CheckRadionButton()
+        //{
+        //    if (IsCheckedSum)
+        //        return "sum";
+        //    else if (IsCheckedSub)
+        //        return "sub";
+        //    else if (IsCheckedDiv)
+        //        return "div";
+        //    else if (isCheckedMult)
+        //        return "mult";
+        //    else
+        //        return string.Empty;
+        //}
 
         public string FormatResult(float? result)
         {

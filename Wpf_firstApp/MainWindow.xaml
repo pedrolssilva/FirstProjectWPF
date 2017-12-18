@@ -143,7 +143,7 @@
                     HorizontalAlignment="Center"
                     Foreground="#BDB76B"
                     GroupName="Operation"
-                    IsChecked="{Binding CurrentOperation, Mode=TwoWay, ConverterParameter=Mult, UpdateSourceTrigger=PropertyChanged}">
+                    IsChecked="{Binding CurrentOperation, Mode=TwoWay, ConverterParameter=Mult, Converter={StaticResource isCheckedOperation}, UpdateSourceTrigger=PropertyChanged}">
                     Mult
                 </RadioButton>
             </StackPanel>
