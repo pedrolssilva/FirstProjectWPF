@@ -159,22 +159,22 @@ namespace Wpf_firstApp
                 case CheckOperation.Sum:
                     result = number1 + number2;
                     Msg = FormatResult(result);
-                    resultados.Add(new Result() { Resultoutcome = Msg, Operation = "Sum" });
+                    resultados.Add(new Result() { Outcome = Msg, Operation = "Sum" });
                     break;
                 case CheckOperation.Sub:
                     result = number1 - number2;
                     Msg = FormatResult(result);
-                    resultados.Add(new Result() { Resultoutcome = Msg, Operation = "Subtraction" });
+                    resultados.Add(new Result() { Outcome = Msg, Operation = "Subtraction" });
                     break;
                 case CheckOperation.Div:
                     result = number1 / number2;
                     Msg = FormatResult(result);
-                    resultados.Add(new Result() { Resultoutcome = Msg, Operation = "division" });
+                    resultados.Add(new Result() { Outcome = Msg, Operation = "division" });
                     break;
                 case CheckOperation.Mult:
                     result = number1 * number2;
                     Msg = FormatResult(result);
-                    resultados.Add(new Result() { Resultoutcome = Msg, Operation = "multiplication" });
+                    resultados.Add(new Result() { Outcome = Msg, Operation = "multiplication" });
                     break;
             }
         }
@@ -201,7 +201,7 @@ namespace Wpf_firstApp
 
     public class Result
     {
-        public string Resultoutcome { get; set; }
+        public string Outcome { get; set; }
         public string Operation { get; set; }
     }  
 }

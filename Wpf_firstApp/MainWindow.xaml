@@ -43,16 +43,12 @@
             </Grid.ColumnDefinitions>
             <Label
                 Grid.Column="0"
-                Margin="10,0,20,0"
-                HorizontalAlignment="Left"
                 Content="Number 1:"
-                Foreground="#BDB76B" />
+                Style="{StaticResource StyleLabelInputs}" />
             <Label
                 Grid.Column="1"
-                Margin="10,0,20,0"
-                HorizontalAlignment="Left"
                 Content="Number 2:"
-                Foreground="#BDB76B" />
+                Style="{StaticResource StyleLabelInputs}" />
         </Grid>
         <Grid
             x:Name="inputRow"
@@ -66,21 +62,11 @@
             <TextBox
                 x:Name="txtnumber1"
                 Grid.Column="0"
-                Width="250"
-                Height="20"
-                HorizontalAlignment="Left"
-                BorderBrush="Black"
-                Foreground="#8B4513"
                 Text="{Binding Num1, Mode=TwoWay, UpdateSourceTrigger=LostFocus}" />
 
             <TextBox
                 x:Name="txtnumber2"
                 Grid.Column="1"
-                Width="250"
-                Height="20"
-                HorizontalAlignment="Left"
-                BorderBrush="Black"
-                Foreground="#8B4513"
                 Text="{Binding Num2, Mode=TwoWay, UpdateSourceTrigger=LostFocus}" />
         </Grid>
         <Grid
@@ -95,17 +81,11 @@
             <Label
                 x:Name="lblResult"
                 Grid.Column="0"
-                HorizontalAlignment="Left"
-                BorderBrush="Black"
                 Content="Result:"
-                Foreground="#BDB76B" />
+                Style="{StaticResource StyleLabelResult}" />
             <TextBox
                 x:Name="txtResult"
                 Grid.Column="1"
-                Width="250"
-                Height="20"
-                HorizontalAlignment="Left"
-                BorderBrush="Black"
                 IsEnabled="False"
                 Text="{Binding Msg, Mode=TwoWay, UpdateSourceTrigger=LostFocus}" />
         </Grid>
@@ -114,38 +94,23 @@
                 <Label
                     Padding="0"
                     Content="Operation:"
-                    Foreground="#BDB76B" />
+                    Style="{StaticResource StyleLabelResult}" />
                 <RadioButton
                     x:Name="sum"
-                    Foreground="#BDB76B"
-                    GroupName="Operation"
-                    IsChecked="{Binding CurrentOperation, Mode=TwoWay, ConverterParameter=Sum, Converter={StaticResource isCheckedOperation}, UpdateSourceTrigger=PropertyChanged}">
-                    Sum
-                </RadioButton>
+                    Content="Sum"
+                    IsChecked="{Binding CurrentOperation, Mode=TwoWay, ConverterParameter=Sum, Converter={StaticResource isCheckedOperation}, UpdateSourceTrigger=PropertyChanged}" />
                 <RadioButton
                     x:Name="sub"
-                    HorizontalAlignment="Center"
-                    Foreground="#BDB76B"
-                    GroupName="Operation"
-                    IsChecked="{Binding CurrentOperation, Mode=TwoWay, ConverterParameter=Sub, Converter={StaticResource isCheckedOperation}, UpdateSourceTrigger=PropertyChanged}">
-                    Sub
-                </RadioButton>
+                    Content="Sub"
+                    IsChecked="{Binding CurrentOperation, Mode=TwoWay, ConverterParameter=Sub, Converter={StaticResource isCheckedOperation}, UpdateSourceTrigger=PropertyChanged}" />
                 <RadioButton
                     x:Name="div"
-                    HorizontalAlignment="Center"
-                    Foreground="#BDB76B"
-                    GroupName="Operation"
-                    IsChecked="{Binding CurrentOperation, Mode=TwoWay, ConverterParameter=Div, Converter={StaticResource isCheckedOperation}, UpdateSourceTrigger=PropertyChanged}">
-                    Div
-                </RadioButton>
+                    Content="Div"
+                    IsChecked="{Binding CurrentOperation, Mode=TwoWay, ConverterParameter=Div, Converter={StaticResource isCheckedOperation}, UpdateSourceTrigger=PropertyChanged}" />
                 <RadioButton
                     x:Name="mult"
-                    HorizontalAlignment="Center"
-                    Foreground="#BDB76B"
-                    GroupName="Operation"
-                    IsChecked="{Binding CurrentOperation, Mode=TwoWay, ConverterParameter=Mult, Converter={StaticResource isCheckedOperation}, UpdateSourceTrigger=PropertyChanged}">
-                    Mult
-                </RadioButton>
+                    Content="Mult"
+                    IsChecked="{Binding CurrentOperation, Mode=TwoWay, ConverterParameter=Mult, Converter={StaticResource isCheckedOperation}, UpdateSourceTrigger=PropertyChanged}" />
             </StackPanel>
         </Grid>
         <Grid Grid.Row="7">
@@ -156,12 +121,9 @@
             </Grid.ColumnDefinitions>
             <Button
                 Grid.Column="1"
-                Background="#000000"
                 Click="ButtonValidateInput"
                 Command="{Binding calculateCommand, ConverterParameter=RadionButtonChecked}"
-                Foreground="#BDB76B">
-                Calcular
-            </Button>
+                Content="Calcular" />
         </Grid>
         <Grid Grid.Row="9" Margin="20">
             <Grid.ColumnDefinitions>
@@ -180,7 +142,7 @@
                     <GridView>
                         <GridViewColumn
                             Width="100"
-                            DisplayMemberBinding="{Binding Resultoutcome}"
+                            DisplayMemberBinding="{Binding Outcome}"
                             Header="Previous results" />
                         <GridViewColumn
                             Width="100"

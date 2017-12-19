@@ -4,5 +4,43 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="clr-namespace:Wpf_firstApp"
     StartupUri="MainWindow.xaml">
-    <Application.Resources />
+    <Application.Resources>
+        <!--  Style to inputs labels  -->
+        <Style x:Key="StyleLabelInputs" TargetType="Label">
+            <Setter Property="Foreground" Value="#BDB76B" />
+            <Setter Property="BorderBrush" Value="Black" />
+            <Setter Property="Width" Value="250" />
+            <Setter Property="Height" Value="50" />
+            <Setter Property="HorizontalAlignment" Value="Left" />
+        </Style>
+
+        <!--  Style to Result label  -->
+        <Style x:Key="StyleLabelResult" TargetType="Label">
+            <Setter Property="Foreground" Value="#BDB76B" />
+            <Setter Property="BorderBrush" Value="Black" />
+            <Setter Property="HorizontalAlignment" Value="Left" />
+        </Style>
+
+        <!--  Style to textbox  -->
+        <Style TargetType="TextBox">
+            <Setter Property="Foreground" Value="#8B4513" />
+            <Setter Property="Width" Value="250" />
+            <Setter Property="Height" Value="20" />
+            <Setter Property="BorderBrush" Value="Black" />
+            <Setter Property="HorizontalAlignment" Value="Left" />
+        </Style>
+
+        <!--  Style to RadionButton  -->
+        <Style TargetType="RadioButton">
+            <Setter Property="GroupName" Value="Operation" />
+            <Setter Property="Foreground" Value="#BDB76B" />
+            <Setter Property="HorizontalAlignment" Value="Center" />
+        </Style>
+
+        <!--  Style to RadionButton  -->
+        <Style TargetType="Button">
+            <Setter Property="Background" Value="#000000" />
+            <Setter Property="Foreground" Value="#BDB76B" />
+        </Style>
+    </Application.Resources>
 </Application>

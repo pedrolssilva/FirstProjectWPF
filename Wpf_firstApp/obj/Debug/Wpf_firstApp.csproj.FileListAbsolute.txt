@@ -13,3 +13,4 @@ C:\Users\Pedro.luiz\Desktop\LearnigWPF\Wpf_firstApp\Wpf_firstApp\obj\Debug\Wpf_f
 C:\Users\Pedro.luiz\Desktop\LearnigWPF\Wpf_firstApp\Wpf_firstApp\obj\Debug\Wpf_firstApp.exe
 C:\Users\Pedro.luiz\Desktop\LearnigWPF\Wpf_firstApp\Wpf_firstApp\obj\Debug\Wpf_firstApp.pdb
 C:\Users\Pedro.luiz\Desktop\LearnigWPF\Wpf_firstApp\Wpf_firstApp\obj\Debug\Wpf_firstApp.csprojResolveAssemblyReference.cache
+C:\Users\Pedro.luiz\Desktop\LearnigWPF\Wpf_firstApp\Wpf_firstApp\obj\Debug\App.baml
